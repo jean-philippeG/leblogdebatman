@@ -32,6 +32,11 @@ Cette commande créera :
 * 10 comptes USER (email aléatoire, password: 'Azert#123'')
 * 50 articles
 
+### Installation fichiers front-end des bundles (CKEditor)
+```
+symfony console assets:install public
+```
+
 ### Lancer le serveur
 ```
 symfony serve
