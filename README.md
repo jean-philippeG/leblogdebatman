@@ -23,14 +23,14 @@ symfony console doctrine:database:create
 symfony console doctrine:migrations:migrate
 ```
 
-### Cration des fixtures (fichier AppFixtures.php)
+### Création des fixtures (fichier AppFixtures.php)
 ```
 symfony console doctrine:fixtures:load
 ```
 Cette commande créera :
 * un compte ADMIN (email: batman@batman.bt, password: 'Azert#123'')
 * 10 comptes USER (email aléatoire, password: 'Azert#123'')
-* 50 articles
+* 200 articles
 
 ### Installation fichiers front-end des bundles (CKEditor)
 ```
