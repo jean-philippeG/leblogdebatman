@@ -19,6 +19,7 @@ class NewPublicationFormType extends AbstractType
         $builder
             ->add('title', TextType::class, [
                 'label' => 'Titre',
+                'empty_data' => '',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner un titre.',
@@ -64,11 +65,6 @@ class NewPublicationFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Article::class,
-
-            // TODO : à supprimer après les tests
-            'attr' => [
-                'novalidate' => 'novalidate',
-            ],
         ]);
     }
 }
