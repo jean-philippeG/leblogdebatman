@@ -31,6 +31,7 @@ Cette commande créera :
 * un compte ADMIN (email: batman@batman.bt, password: 'Azert#123'')
 * 10 comptes USER (email aléatoire, password: 'Azert#123'')
 * 200 articles
+* entre 0 et 10 commentaires par article
 
 ### Installation fichiers front-end des bundles (CKEditor)
 ```
