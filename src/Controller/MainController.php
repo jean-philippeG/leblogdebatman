@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Form\EditPhotoFormType;
-
 use Doctrine\Persistence\ManagerRegistry;
 use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,9 +18,18 @@ class MainController extends AbstractController
      * Controleur de la page d'accueil
      */
     #[Route('/', name: 'main_home')]
-    public function home(): Response
+    public function home(ManagerRegistry $doctrine): Response
     {
-        return $this->render('main/home.html.twig');
+        // Récupération du repo des articles
+        $articleRepo = $doctrine->getRepository(Article::class);
+
+        // Récupération des 3 derniers articles, équivalent à la requête SQL :
+        // SELECT * FROM article ORDER BY publication_date DESC LIMIT 3
+        $articles = $articleRepo->findBy([], ['publicationDate' => 'DESC'], $this->getParameter('app.article.number_of_latest_articles_on_home'));
+
+        return $this->render('main/home.html.twig', [
+            'articles' => $articles,
+        ]);
     }
 
     /**
